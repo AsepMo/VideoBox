@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:background="#000000">
+
+	<LinearLayout
+		android:id="@+id/linearLayout1"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"
+		android:layout_centerVertical="true"
+		android:orientation="vertical">
+
+		<TextView
+			android:id="@+id/current_package_name"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal"
+			android:text="Waiting for convert to mp3"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:textColor="#FEFEFE"/>
+
+		<TextView
+			android:id="@+id/current_status"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal"
+			android:text="Please wait.."
+			android:textAllCaps="false"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textColor="#4EF145"
+			android:gravity="center"/>
+
+		<TextView
+			android:id="@+id/current_line"
+			android:layout_width="wrap_content"
+			android:layout_height="40dp"
+			android:layout_gravity="center_horizontal"
+			android:ellipsize="none"
+			android:singleLine="false"
+			android:text="OutPut :"
+			android:textAllCaps="false"
+			android:textAppearance="?android:attr/textAppearanceSmall"
+			android:textColor="#D5D5D5"
+			android:gravity="center"/>
+
+	</LinearLayout>
+
+	<RelativeLayout
+		android:id="@+id/relativeLayout1"
+		android:layout_width="100dp"
+		android:layout_height="100dp"
+		android:layout_above="@+id/linearLayout1"
+		android:layout_centerHorizontal="true"
+		android:orientation="vertical">
+
+		<ImageView
+			android:id="@+id/gear_progress_left"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentBottom="true"
+			android:layout_alignParentLeft="true"
+			android:layout_marginBottom="7dp"
+			android:src="@drawable/gear_grey"
+			android:tint="#FFFFFF"/>
+
+		<ImageView
+			android:id="@+id/gear_progress_right"
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:layout_alignParentBottom="true"
+			android:layout_alignParentRight="true"
+			android:layout_marginRight="10dp"
+			android:src="@drawable/gear_grey"
+			android:tint="#FFFFFF"/>
+
+	</RelativeLayout>
+
+</RelativeLayout>
+

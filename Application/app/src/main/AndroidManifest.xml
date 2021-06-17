@@ -1,0 +1,302 @@
+<?xml version='1.0' encoding='utf-8'?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.github.videobox">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_OWNER_DATA" />
+
+    <application
+        android:name="com.github.videobox.VideoBoxApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+        android:resizeableActivity="false">
+        <activity
+            android:name="com.github.videobox.StartActivity"
+            android:theme="@style/AppTheme.Splash"
+            android:screenOrientation="landscape"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.github.videobox.VideoBoxActivity"
+            android:screenOrientation="landscape"
+            android:label="@string/app_name">
+
+        </activity>
+        <activity
+            android:name="com.github.videobox.VideoVRActivity"
+            android:screenOrientation="landscape"/>
+
+        <activity
+            android:name="com.github.videobox.VideoEditorActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name">
+
+        </activity>
+        <activity
+            android:name="com.github.videobox.VideoTrimmerActivity"
+            android:screenOrientation="portrait"/>
+        
+        <activity
+            android:name="com.github.videobox.VideoRecorderActivity"
+            android:screenOrientation="sensor"
+            android:label="@string/app_name">
+
+        </activity>
+        <activity
+            android:name="com.github.videobox.VideoSettingActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name">
+
+        </activity>
+        <service
+            android:name="com.github.videobox.app.services.GifMakeService"
+            android:exported="false"/>
+
+        <activity
+            android:name="com.github.videobox.VideoHistoryActivity"
+            android:label="@string/app_name"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.github.videobox.VideoSelectorActivity"
+            android:label="@string/app_name"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity 
+            android:name="com.github.videobox.AudioPreviewActivity" 
+            android:label="@string/app_activity_audio_preview"
+            android:theme="@android:style/Theme.Dialog"
+            android:taskAffinity=""
+            android:excludeFromRecents="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="file"/>
+                <data android:mimeType="audio/*"/>
+                <data android:mimeType="application/ogg"/>
+                <data android:mimeType="application/x-ogg"/>
+                <data android:mimeType="application/itunes"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="http" />
+                <data android:mimeType="audio/*"/>
+                <data android:mimeType="application/ogg"/>
+                <data android:mimeType="application/x-ogg"/>
+                <data android:mimeType="application/itunes"/>
+            </intent-filter>
+            <intent-filter
+                android:priority="-1">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="content" />
+                <data android:mimeType="audio/*"/>
+                <data android:mimeType="application/ogg"/>
+                <data android:mimeType="application/x-ogg"/>
+                <data android:mimeType="application/itunes"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.github.videobox.VideoPreviewActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:label="@string/app_activity_video_preview" 
+            android:theme="@style/AppTheme.Splash"
+            android:screenOrientation="landscape">
+         
+        </activity>
+        <activity 
+            android:name="com.github.videobox.VideoPlayerActivity" 
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:label="@string/app_activity_video_preview" 
+            android:theme="@style/AppTheme.Splash"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="file"/>
+                <data android:mimeType="application/sdp"/>
+                <data android:mimeType="application/x-dtcp1"/>
+                <data android:mimeType="video/mp4" />
+                <data android:mimeType="video/mpeg" />
+                <data android:mimeType="video/mpeg4" />
+                <data android:mimeType="video/mp2p" />
+                <data android:mimeType="video/3gp" />
+                <data android:mimeType="video/3gpp" />
+                <data android:mimeType="video/3gpp2" />
+                <data android:mimeType="video/x-ms-asf" />
+                <data android:mimeType="video/x-ms-wmv" />
+                <data android:mimeType="video/x-ms-wma" />
+                <data android:mimeType="video/x-m4v" />
+                <data android:mimeType="video/m4v" />
+                <data android:mimeType="video/webm" />
+                <data android:mimeType="video/flv" />
+                <data android:mimeType="video/x-flv" />
+                <data android:mimeType="video/mkv" />
+                <data android:mimeType="video/x-matroska" />
+                <data android:mimeType="video/divx" />
+                <data android:mimeType="video/avi" />
+                <data android:mimeType="video/skm" />
+                <data android:mimeType="video/sktm" />
+                <data android:mimeType="video/k3g" />
+                <data android:mimeType="video/ak3g" />
+                <data android:mimeType="video/x-msvideo" />
+                <data android:mimeType="video/rmf" />
+                <data android:mimeType="video/vnd.ms-playready.media.pyv" />
+                <data android:mimeType="video/mp2ts" />
+                <data android:mimeType="video/vnd.sdrm-media.sm4" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="http" />
+                <data android:mimeType="application/sdp"/>
+                <data android:mimeType="application/x-dtcp1"/>   
+                <data android:mimeType="video/mp4" />
+                <data android:mimeType="video/mpeg" />
+                <data android:mimeType="video/mpeg4" />
+                <data android:mimeType="video/mp2p" />
+                <data android:mimeType="video/3gp" />
+                <data android:mimeType="video/3gpp" />
+                <data android:mimeType="video/3gpp2" />
+                <data android:mimeType="video/x-ms-asf" />
+                <data android:mimeType="video/x-ms-wmv" />
+                <data android:mimeType="video/x-ms-wma" />
+                <data android:mimeType="video/x-m4v" />
+                <data android:mimeType="video/m4v" />
+                <data android:mimeType="video/webm" />
+                <data android:mimeType="video/flv" />
+                <data android:mimeType="video/x-flv" />
+                <data android:mimeType="video/mkv" />
+                <data android:mimeType="video/x-matroska" />
+                <data android:mimeType="video/divx" />
+                <data android:mimeType="video/avi" />
+                <data android:mimeType="video/skm" />
+                <data android:mimeType="video/sktm" />
+                <data android:mimeType="video/k3g" />
+                <data android:mimeType="video/ak3g" />
+                <data android:mimeType="video/x-msvideo" />
+                <data android:mimeType="video/rmf" />
+                <data android:mimeType="video/vnd.ms-playready.media.pyv" />
+                <data android:mimeType="video/mp2ts" />
+                <data android:mimeType="video/vnd.sdrm-media.sm4" />
+            </intent-filter>
+            <intent-filter
+                android:priority="-1">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="content" />         
+                <data android:mimeType="application/sdp"/>
+                <data android:mimeType="application/x-dtcp1"/>
+                <data android:mimeType="video/mp4" />
+                <data android:mimeType="video/mpeg" />
+                <data android:mimeType="video/mpeg4" />
+                <data android:mimeType="video/mp2p" />
+                <data android:mimeType="video/3gp" />
+                <data android:mimeType="video/3gpp" />
+                <data android:mimeType="video/3gpp2" />
+                <data android:mimeType="video/x-ms-asf" />
+                <data android:mimeType="video/x-ms-wmv" />
+                <data android:mimeType="video/x-ms-wma" />
+                <data android:mimeType="video/x-m4v" />
+                <data android:mimeType="video/m4v" />
+                <data android:mimeType="video/webm" />
+                <data android:mimeType="video/flv" />
+                <data android:mimeType="video/x-flv" />
+                <data android:mimeType="video/mkv" />
+                <data android:mimeType="video/x-matroska" />
+                <data android:mimeType="video/divx" />
+                <data android:mimeType="video/avi" />
+                <data android:mimeType="video/skm" />
+                <data android:mimeType="video/sktm" />
+                <data android:mimeType="video/k3g" />
+                <data android:mimeType="video/ak3g" />
+                <data android:mimeType="video/x-msvideo" />
+                <data android:mimeType="video/rmf" />
+                <data android:mimeType="video/vnd.ms-playready.media.pyv" />
+                <data android:mimeType="video/mp2ts" />
+                <data android:mimeType="video/vnd.sdrm-media.sm4" />
+            </intent-filter>
+		</activity>
+        <activity
+            android:name="com.github.videobox.YouTubePreviewActivity"
+            android:label="@string/app_activity_youtube_preview"
+            android:icon="@mipmap/ic_launcher_youtube_preview"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:host="youtube.com" />
+                <data android:host="www.youtube.com" />
+                <data android:host="m.youtube.com" />
+                <data android:host="youtu.be" />
+                <data android:pathPattern=".*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="vnd.youtube" />
+                <data android:scheme="vnd.youtube.launch" />
+			</intent-filter>
+        </activity>
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider> 
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="4.0"/>
+
+    </application>
+
+</manifest>
